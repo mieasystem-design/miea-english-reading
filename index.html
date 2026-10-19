@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Manno-ike: A Treasure of Our Town</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px 14px 40px;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+      background: linear-gradient(180deg, #e7f8ff 0%, #f2fff5 100%);
+      color: #334155;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .icon {
+      font-size: 42px;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #167c80;
+      font-size: 30px;
+      line-height: 1.35;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      color: #64748b;
+      font-weight: bold;
+    }
+
+    .guide {
+      background: white;
+      border: 2px solid #b9e6dc;
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 18px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    }
+
+    .guide-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      color: #16818a;
+      margin-bottom: 8px;
+    }
+
+    .guide p {
+      margin: 6px 0;
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    .buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      border: none;
+      border-radius: 18px;
+      padding: 15px 8px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #264653;
+      min-height: 62px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    button:active {
+      transform: scale(0.97);
+    }
+
+    .very-slow {
+      background: #d8f3dc;
+    }
+
+    .slow {
+      background: #cdeffd;
+    }
+
+    .normal {
+      background: #ffe5b4;
+    }
+
+    .stop {
+      width: 100%;
+      background: #e2e8f0;
+      color: #475569;
+      margin-bottom: 20px;
+    }
+
+    .reading {
+      background: white;
+      border-radius: 24px;
+      padding: 24px 22px;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.07);
+      border-top: 6px solid #7dd3c7;
+    }
+
+    .reading-title {
+      font-size: 23px;
+      font-weight: bold;
+      text-align: center;
+      color: #167c80;
+      margin-bottom: 22px;
+    }
+
+    .reading p {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 19px;
+      line-height: 1.85;
+      margin: 0 0 20px;
+      color: #263747;
+    }
+
+    .name-note {
+      display: block;
+      margin-top: -12px;
+      margin-bottom: 20px;
+      padding-left: 10px;
+      color: #16818a;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .bottom-guide {
+      margin-top: 20px;
+      background: #fffbea;
+      border: 2px solid #f3dfa2;
+      border-radius: 20px;
+      padding: 17px;
+      line-height: 1.7;
+    }
+
+    .bottom-guide strong {
+      color: #7c6500;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 13px;
+      margin-top: 24px;
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 14px 10px 30px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .buttons {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        min-height: 55px;
+      }
+
+      .reading {
+        padding: 20px 17px;
+      }
+
+      .reading p {
+        font-size: 18px;
+        line-height: 1.8;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div class="icon">💧🌿</div>
+
+    <h1>Manno-ike: A Treasure of Our Town</h1>
+
+    <div class="subtitle">
+      英語朗読コンテスト
+    </div>
+  </div>
+
+
+  <div class="guide">
+
+    <div class="guide-title">
+      🎧 参考音声を聞いてみよう
+    </div>
+
+    <p>
+      音声はあくまで「参考」であり
+    </p>
+  <p>
+      お手本ではありません。
+    </p>
+    
+    <p>
+      音声をヒントに、自分ならどう読むか考えてみよう！
+    </p>
+
+  </div>
+
+
+  <div class="buttons">
+
+    <button
+      class="very-slow"
+      onclick="startReading(0.6)">
+      🐌 とてもゆっくり<br>0.6×
+    </button>
+
+    <button
+      class="slow"
+      onclick="startReading(0.8)">
+      🐢 ゆっくり<br>0.8×
+    </button>
+
+    <button
+      class="normal"
+      onclick="startReading(1.0)">
+      ▶ ふつう<br>1.0×
+    </button>
+
+  </div>
+
+
+  <button
+    class="stop"
+    onclick="stopReading()">
+    ■ とめる
+  </button>
+
+
+  <div class="reading">
+
+    <div class="reading-title">
+      Manno-ike: A Treasure of Our Town
+    </div>
+
+
+    <p>
+      Hello, everyone. My name is _____.
+    </p>
+
+    <span class="name-note">
+      ↑ _____ のところで、自分の名前を言おう
+    </span>
+
+
+    <p>
+      Today, I'd like to talk about Manno-ike, a great treasure of our town.
+      It looks peaceful today, but Manno-ike has a long history of challenges.
+    </p>
+
+
+    <p>
+      Kagawa has many sunny days but not much rain.
+      Long ago, people often did not have enough water for their rice fields.
+      So they built many reservoirs to save water.
+      Manno-ike became one of the largest agricultural reservoirs in Japan.
+    </p>
+
+
+    <p>
+      But one day, a flood broke the bank of Manno-ike, and the people were in great trouble.
+      They asked Kukai, a famous monk born in Kagawa, to help rebuild it.
+      Kukai was trusted by many people.
+      Thousands of people came to help him.
+      Together, they rebuilt Manno-ike in only three months.
+    </p>
+
+
+    <p>
+      Later, floods and earthquakes damaged Manno-ike many times.
+      But each time, people worked together to rebuild it.
+      For more than 1,000 years, people have protected Manno-ike and its precious water.
+    </p>
+
+
+    <p>
+      Today, we still use the water from Manno-ike.
+      Every summer, we have Yuru-nuki, the traditional water release.
+      The water gates open, and the water flows through rivers and irrigation channels to our rice fields.
+      This water helps our rice grow.
+    </p>
+
+
+    <p>
+      Manno-ike is more than a reservoir.
+      It is a part of our town's history and our lives.
+      Our ancestors protected Manno-ike for us.
+      Now, it is our turn to protect it and pass it on to future generations.
+    </p>
+
+
+    <p>
+      Thank you all for listening.
+    </p>
+
+  </div>
+
+
+  <div class="bottom-guide">
+
+    <strong>💡 自分らしい朗読を考えてみよう</strong>
+
+    <br><br>
+
+    参考音声とまったく同じように読む必要はありません。
+    発音やリズムを確認したら、どこを強く読むか、
+    どこで間をとるかなど、自分らしい朗読を考えてみましょう。
+
+  </div>
+
+
+  <footer>
+    Manno Town International Exchange Association
+  </footer>
+
+</div>
+
+
+<script>
+
+  let currentUtterance = null;
+  let readingStopped = false;
+
+
+  function findEnglishVoice() {
+
+    const voices = window.speechSynthesis.getVoices();
+
+    const preferredNames = [
+      "Samantha",
+      "Google US English",
+      "Microsoft Aria",
+      "Microsoft Jenny",
+      "Microsoft Zira"
+    ];
+
+    for (const name of preferredNames) {
+
+      const voice = voices.find(v =>
+        v.name.includes(name)
+      );
+
+      if (voice) {
+        return voice;
+      }
+    }
+
+
+    return (
+      voices.find(v => v.lang === "en-US") ||
+      voices.find(v => v.lang.startsWith("en-US")) ||
+      voices.find(v => v.lang.startsWith("en")) ||
+      null
+    );
+  }
+
+
+  /*
+    画面に表示する英文は変更しません。
+
+    読み上げるときだけ、日本の固有名詞を
+    日本語の発音に近づけています。
+
+    Manno-ike  → まんのういけ
+    Kagawa     → かがわ
+    Kukai      → くうかい
+    Yuru-nuki  → ゆるぬき
+  */
+
+
+  const speechParts = [
+
+    {
+      text:
+        "Hello, everyone. My name is",
+      pauseAfter: 1300
+    },
+
+    {
+      text:
+        `Today, I'd like to talk about Mahn-noh ee-keh, a great treasure of our town.
+        It looks peaceful today, but Mahn-noh ee-keh has a long history of challenges.
+
+        Kah-gah-wah has many sunny days but not much rain.
+        Long ago, people often did not have enough water for their rice fields.
+        So they built many reservoirs to save water.
+        Mahn-noh ee-keh became one of the largest agricultural reservoirs in Japan.
+
+        But one day, a flood broke the bank of Mahn-noh ee-keh, and the people were in great trouble.
+        They asked Koo-kai, a famous monk born in Kah-gah-wah, to help rebuild it.
+        Koo-kai was trusted by many people.
+        Thousands of people came to help him.
+        Together, they rebuilt Mahn-noh ee-keh in only three months.
+
+        Later, floods and earthquakes damaged Mahn-noh ee-keh many times.
+        But each time, people worked together to rebuild it.
+        For more than 1,000 years, people have protected Mahn-noh ee-keh and its precious water.
+
+        Today, we still use the water from Mahn-noh ee-keh.
+        Every summer, we have Yoo-roo noo-kee, the traditional water release.
+        The water gates open, and the water flows through rivers and irrigation channels to our rice fields.
+        This water helps our rice grow.
+
+        Mahn-noh ee-keh is more than a reservoir.
+        It is a part of our town's history and our lives.
+        Our ancestors protected Mahn-noh ee-keh for us.
+        Now, it is our turn to protect it and pass it on to future generations.
+
+        Thank you all for listening.`,
+      pauseAfter: 0
+    }
+
+  ];
+
+
+  function speakPart(index, speed, voice) {
+
+    if (readingStopped) {
+      return;
+    }
+
+    if (index >= speechParts.length) {
+      return;
+    }
+
+
+    const part = speechParts[index];
+
+    const utterance =
+      new SpeechSynthesisUtterance(part.text);
+
+
+    utterance.lang = "en-US";
+
+    utterance.rate = speed;
+
+    utterance.pitch = 1;
+
+    utterance.volume = 1;
+
+
+    if (voice) {
+      utterance.voice = voice;
+    }
+
+
+    currentUtterance = utterance;
+
+
+    utterance.onend = function() {
+
+      if (readingStopped) {
+        return;
+      }
+
+
+      if (part.pauseAfter > 0) {
+
+        setTimeout(function() {
+
+          if (!readingStopped) {
+            speakPart(index + 1, speed, voice);
+          }
+
+        }, part.pauseAfter);
+
+      } else {
+
+        speakPart(index + 1, speed, voice);
+
+      }
+
+    };
+
+
+    window.speechSynthesis.speak(utterance);
+
+  }
+
+
+  function startReading(speed) {
+
+    stopReading();
+
+    readingStopped = false;
+
+
+    const voice = findEnglishVoice();
+
+
+    setTimeout(function() {
+
+      speakPart(0, speed, voice);
+
+    }, 100);
+
+  }
+
+
+  function stopReading() {
+
+    readingStopped = true;
+
+    window.speechSynthesis.cancel();
+
+    currentUtterance = null;
+
+  }
+
+
+  /*
+    スマートフォンなどでは、
+    音声一覧の読み込みに少し時間がかかる場合があります。
+  */
+
+  if (
+    typeof window.speechSynthesis !== "undefined" &&
+    window.speechSynthesis.onvoiceschanged !== undefined
+  ) {
+
+    window.speechSynthesis.onvoiceschanged = function() {
+      findEnglishVoice();
+    };
+
+  }
+
+</script>
+
+</body>
+</html>
