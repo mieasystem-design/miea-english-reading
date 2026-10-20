@@ -200,6 +200,17 @@
         line-height: 1.8;
       }
     }
+
+    .section-heading { font-size: 19px; color: #167c80; margin: 8px 0 14px; }
+    .full-controls { margin-top: 8px; }
+    .scene-intro { font-family: inherit !important; font-size: 15px !important; line-height: 1.7 !important; color: #64748b !important; }
+    .scene { border-top: 1px solid #d9e9e5; padding: 18px 0 8px; }
+    .scene-top { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px; }
+    .scene h3 { color:#167c80; font-size:17px; margin:0; }
+    .scene-play { min-height:44px; padding:10px 12px; flex-shrink:0; font-size:14px; background:#cdeffd; border-radius:13px; }
+    .scene p { margin: 0 0 12px; }
+    .scene .name-note { margin: -4px 0 14px; }
+    @media(max-width:560px) { .scene h3 {font-size:16px;} .scene-play {font-size:13px;} }
   </style>
 </head>
 
@@ -225,105 +236,56 @@
   </div>
 
 
-  <div class="buttons">
-
-    <button
-      class="very-slow"
-      onclick="startReading(0.4)">
-      🐌 じっくり<br>0.4×
-    </button>
-
-    <button
-      class="slow"
-      onclick="startReading(0.6)">
-      🐢 ゆっくり<br>0.6×
-    </button>
-
-    <button
-      class="normal"
-      onclick="startReading(0.8)">
-      ▶ チャレンジ<br>0.8×
-    </button>
-
-  </div>
-
-
-  <button
-    class="stop"
-    onclick="stopReading()">
-    ■ とめる
-  </button>
-
-
-  <div class="reading">
-
-    <div class="reading-title">
-      Manno-ike: A Treasure of Our Town
-    </div>
-
-
-    <p>
-      Hello, everyone. My name is _____.
-    </p>
-
-    <span class="name-note">
-      ↑ _____ のところで、自分の名前を言おう
-    </span>
-
-
-    <p>
-      Today, I'd like to talk about Manno-ike, a great treasure of our town.
-      It looks peaceful today, but Manno-ike has a long history of challenges.
-    </p>
-
-
-    <p>
-      Kagawa has many sunny days but not much rain.
-      Long ago, people often did not have enough water for their rice fields.
-      So they built many reservoirs to save water.
-      Manno-ike became one of the largest agricultural reservoirs in Japan.
-    </p>
-
-
-    <p>
-      But one day, a flood broke the bank of Manno-ike, and the people were in great trouble.
-      They asked Kukai, a famous monk born in Kagawa, to help rebuild it.
-      Kukai was trusted by many people.
-      Thousands of people came to help him.
-      Together, they rebuilt Manno-ike in only three months.
-    </p>
-
-
-    <p>
-      Later, floods and earthquakes damaged Manno-ike many times.
-      But each time, people worked together to rebuild it.
-      For more than 1,000 years, people have protected Manno-ike and its precious water.
-    </p>
-
-
-    <p>
-      Today, we still use the water from Manno-ike.
-      Every summer, we have Yuru-nuki, the traditional water release.
-      The water gates open, and the water flows through rivers and irrigation channels to our rice fields.
-      This water helps our rice grow.
-    </p>
-
-
-    <p>
-      Manno-ike is more than a reservoir.
-      It is a part of our town's history and our lives.
-      Our ancestors protected Manno-ike for us.
-      Now, it is our turn to protect it and pass it on to future generations.
-    </p>
-
-
-    <p>
-      Thank you all for listening.
-    </p>
-
-  </div>
-
-
+<section class="full-controls" aria-label="全文の参考音声">
+<h2 class="section-heading">① 全文を聞いてみよう</h2>
+<div class="buttons">
+<button class="very-slow" onclick="startFull(0.4)">🐌 じっくり<br>0.4×</button>
+<button class="slow" onclick="startFull(0.6)">🐢 ゆっくり<br>0.6×</button>
+<button class="normal" onclick="startFull(0.8)">▶ チャレンジ<br>0.8×</button>
+</div>
+</section>
+<button class="stop" onclick="stopReading()">■ とめる</button>
+<div class="reading">
+<div class="reading-title">Manno-ike: A Treasure of Our Town</div>
+<h2 class="section-heading">② 場面ごとに練習してみよう</h2>
+<p class="scene-intro">聞きたい場面の「音声を聞く」を押してみよう。<br>場面ごとの音声は、ゆっくり（0.6倍）です。</p>
+<section class="scene" id="scene-1"><div class="scene-top"><h3>1. はじめに</h3><button class="scene-play" onclick="startScene(0)" aria-label="はじめにの音声を聞く">▶ 音声を聞く</button></div>
+<p>Hello, everyone. My name is _____.</p><span class="name-note">↑ _____ のところで、自分の名前を言おう</span>
+<p>Today, I'd like to talk about Manno-ike, a great treasure of our town.</p>
+<p>It looks peaceful today, but Manno-ike has a long history of challenges.</p>
+</section>
+<section class="scene" id="scene-2"><div class="scene-top"><h3>2. 水が足りなかった昔</h3><button class="scene-play" onclick="startScene(1)" aria-label="水が足りなかった昔の音声を聞く">▶ 音声を聞く</button></div>
+<p>Kagawa has many sunny days but not much rain.</p>
+<p>Long ago, people often did not have enough water for their rice fields.</p>
+<p>So they built many reservoirs to save water.</p>
+<p>Manno-ike became one of the largest agricultural reservoirs in Japan.</p>
+</section>
+<section class="scene" id="scene-3"><div class="scene-top"><h3>3. 空海と満濃池</h3><button class="scene-play" onclick="startScene(2)" aria-label="空海と満濃池の音声を聞く">▶ 音声を聞く</button></div>
+<p>But one day, a flood broke the bank of Manno-ike, and the people were in great trouble.</p>
+<p>They asked Kukai, a famous monk born in Kagawa, to help rebuild it.</p>
+<p>Kukai was trusted by many people.</p>
+<p>Thousands of people came to help him.</p>
+<p>Together, they rebuilt Manno-ike in only three months.</p>
+</section>
+<section class="scene" id="scene-4"><div class="scene-top"><h3>4. 守り続けた人々</h3><button class="scene-play" onclick="startScene(3)" aria-label="守り続けた人々の音声を聞く">▶ 音声を聞く</button></div>
+<p>Later, floods and earthquakes damaged Manno-ike many times.</p>
+<p>But each time, people worked together to rebuild it.</p>
+<p>For more than 1,000 years, people have protected Manno-ike and its precious water.</p>
+</section>
+<section class="scene" id="scene-5"><div class="scene-top"><h3>5. 今の満濃池</h3><button class="scene-play" onclick="startScene(4)" aria-label="今の満濃池の音声を聞く">▶ 音声を聞く</button></div>
+<p>Today, we still use the water from Manno-ike.</p>
+<p>Every summer, we have Yuru-nuki, the traditional water release.</p>
+<p>The water gates open, and the water flows through rivers and irrigation channels to our rice fields.</p>
+<p>This water helps our rice grow.</p>
+</section>
+<section class="scene" id="scene-6"><div class="scene-top"><h3>6. 未来へつなぐ</h3><button class="scene-play" onclick="startScene(5)" aria-label="未来へつなぐの音声を聞く">▶ 音声を聞く</button></div>
+<p>Manno-ike is more than a reservoir.</p>
+<p>It is a part of our town's history and our lives.</p>
+<p>Our ancestors protected Manno-ike for us.</p>
+<p>Now, it is our turn to protect it and pass it on to future generations.</p>
+<p>Thank you all for listening.</p>
+</section>
+</div>
   <div class="bottom-guide">
     <strong>💡 自分らしい朗読を考えてみよう</strong>
     <p>どの言葉を強く読むか、どこで間をとるかなど、自分なりに工夫してみましょう。</p>
@@ -376,176 +338,93 @@
   }
 
 
-  /*
-    画面に表示する英文は変更しません。
 
-    読み上げるときだけ、日本の固有名詞を
-    日本語の発音に近づけています。
-
-    Manno-ike  → まんのういけ
-    Kagawa     → かがわ
-    Kukai      → くうかい
-    Yuru-nuki  → ゆるぬき
-  */
-
-
-  const speechParts = [
-
-    {
-      text:
-        "Hello, everyone. My name is",
-      pauseAfter: 1300
-    },
-
-    {
-      text:
-        `Today, I'd like to talk about Mah-noh ee-keh, a great treasure of our town.
-        It looks peaceful today, but Mah-noh ee-keh has a long history of challenges.
-
-        Kah-gah-wah has many sunny days but not much rain.
-        Long ago, people often did not have enough water for their rice fields.
-        So they built many reservoirs to save water.
-        Mah-noh ee-keh became one of the largest agricultural reservoirs in Japan.
-
-        But one day, a flood broke the bank of Mah-noh ee-keh, and the people were in great trouble.
-        They asked Koo-kye, a famous monk born in Kah-gah-wah, to help rebuild it.
-        Koo-kye was trusted by many people.
-        Thousands of people came to help him.
-        Together, they rebuilt Mah-noh ee-keh in only three months.
-
-        Later, floods and earthquakes damaged Mah-noh ee-keh many times.
-        But each time, people worked together to rebuild it.
-        For more than 1,000 years, people have protected Mah-noh ee-keh and its precious water.
-
-        Today, we still use the water from Mah-noh ee-keh.
-        Every summer, we have Yoo-roo noo-kee, the traditional water release.
-        The water gates open, and the water flows through rivers and irrigation channels to our rice fields.
-        This water helps our rice grow.
-
-        Mah-noh ee-keh is more than a reservoir.
-        It is a part of our town's history and our lives.
-        Our ancestors protected Mah-noh ee-keh for us.
-        Now, it is our turn to protect it and pass it on to future generations.
-
-        Thank you all for listening.`,
-      pauseAfter: 0
-    }
-
+  // 英文は画面表示用と音声用を分けています。
+  // 固有名詞の音声用表記は前回版の設定を維持しています。
+  const sceneTexts = [
+    [
+      "Hello, everyone. My name is",
+      `Today, I'd like to talk about Mah-noh ee-keh, a great treasure of our town.
+      It looks peaceful today, but Mah-noh ee-keh has a long history of challenges.`
+    ],
+    `Kah-gah-wah has many sunny days but not much rain.
+     Long ago, people often did not have enough water for their rice fields.
+     So they built many reservoirs to save water.
+     Mah-noh ee-keh became one of the largest agricultural reservoirs in Japan.`,
+    `But one day, a flood broke the bank of Mah-noh ee-keh, and the people were in great trouble.
+     They asked Koo-kye, a famous monk born in Kah-gah-wah, to help rebuild it.
+     Koo-kye was trusted by many people.
+     Thousands of people came to help him.
+     Together, they rebuilt Mah-noh ee-keh in only three months.`,
+    `Later, floods and earthquakes damaged Mah-noh ee-keh many times.
+     But each time, people worked together to rebuild it.
+     For more than 1,000 years, people have protected Mah-noh ee-keh and its precious water.`,
+    `Today, we still use the water from Mah-noh ee-keh.
+     Every summer, we have Yoo-roo noo-kee, the traditional water release.
+     The water gates open, and the water flows through rivers and irrigation channels to our rice fields.
+     This water helps our rice grow.`,
+    `Mah-noh ee-keh is more than a reservoir.
+     It is a part of our town's history and our lives.
+     Our ancestors protected Mah-noh ee-keh for us.
+     Now, it is our turn to protect it and pass it on to future generations.
+     Thank you all for listening.`
   ];
 
-
-  function speakPart(index, speed, voice) {
-
-    if (readingStopped) {
-      return;
-    }
-
-    if (index >= speechParts.length) {
-      return;
-    }
-
-
-    const part = speechParts[index];
-
-    const utterance =
-      new SpeechSynthesisUtterance(part.text);
-
-
-    utterance.lang = "en-US";
-
-    utterance.rate = speed;
-
-    utterance.pitch = 1;
-
-    utterance.volume = 1;
-
-
-    if (voice) {
-      utterance.voice = voice;
-    }
-
-
-    currentUtterance = utterance;
-
-
-    utterance.onend = function() {
-
-      if (readingStopped) {
-        return;
-      }
-
-
-      if (part.pauseAfter > 0) {
-
-        setTimeout(function() {
-
-          if (!readingStopped) {
-            speakPart(index + 1, speed, voice);
-          }
-
-        }, part.pauseAfter);
-
-      } else {
-
-        speakPart(index + 1, speed, voice);
-
-      }
-
-    };
-
-
-    window.speechSynthesis.speak(utterance);
-
-  }
-
-
-  function startReading(speed) {
-
-    stopReading();
-
-    readingStopped = false;
-
-
-    const voice = findEnglishVoice();
-
-
-    setTimeout(function() {
-
-      speakPart(0, speed, voice);
-
-    }, 100);
-
-  }
-
-
+  let session = 0;
+  let activeTimer = null;
   function stopReading() {
-
-    readingStopped = true;
-
+    session++;
+    if (activeTimer !== null) clearTimeout(activeTimer);
+    activeTimer = null;
     window.speechSynthesis.cancel();
-
-    currentUtterance = null;
-
   }
-
-
-  /*
-    スマートフォンなどでは、
-    音声一覧の読み込みに少し時間がかかる場合があります。
-  */
-
-  if (
-    typeof window.speechSynthesis !== "undefined" &&
-    window.speechSynthesis.onvoiceschanged !== undefined
-  ) {
-
-    window.speechSynthesis.onvoiceschanged = function() {
-      findEnglishVoice();
-    };
-
+  function playQueue(items, speed) {
+    stopReading();
+    const mySession = session;
+    const voice = findEnglishVoice();
+    let index = 0;
+    function next() {
+      if (mySession !== session || index >= items.length) return;
+      const item = items[index++];
+      const utterance = new SpeechSynthesisUtterance(item.text);
+      utterance.lang = "en-US";
+      utterance.rate = speed;
+      utterance.pitch = 1;
+      utterance.volume = 1;
+      if (voice) utterance.voice = voice;
+      utterance.onend = () => {
+        if (mySession !== session) return;
+        if (item.pause) {
+          activeTimer = setTimeout(next, item.pause);
+        } else {
+          next();
+        }
+      };
+      utterance.onerror = () => { if (mySession === session) next(); };
+      window.speechSynthesis.speak(utterance);
+    }
+    activeTimer = setTimeout(next, 100);
+  }
+  function makeSceneItems(sceneIndex) {
+    if (sceneIndex === 0) {
+      return [
+        {text: sceneTexts[0][0], pause:1300},
+        {text: sceneTexts[0][1], pause:0}
+      ];
+    }
+    return [{text: sceneTexts[sceneIndex], pause:0}];
+  }
+  function startScene(sceneIndex) {
+    playQueue(makeSceneItems(sceneIndex), 0.6);
+  }
+  function startFull(speed) {
+    const all = sceneTexts.flatMap((_, i) => makeSceneItems(i));
+    playQueue(all, speed);
+  }
+  if (window.speechSynthesis && "onvoiceschanged" in window.speechSynthesis) {
+    window.speechSynthesis.onvoiceschanged = findEnglishVoice;
   }
 
 </script>
-
 </body>
 </html>
