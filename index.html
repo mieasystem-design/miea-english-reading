@@ -370,6 +370,16 @@
      Thank you all for listening.`
   ];
 
+  // iPhone / iPod の音声合成だけに適用する発音テスト。
+  // 画面の英文、Windows、Pixel などの音声用英文は変更しません。
+  function prepareSpeechText(text) {
+    const isIPhone = /iPhone|iPod/i.test(navigator.userAgent) ||
+      (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+    if (!isIPhone) return text;
+    // rivers のみ試験的に表記を変える（実機で発音を確認してください）。
+    return text.replace(/\brivers\b/g, "rivvers");
+  }
+
   let session = 0;
   let activeTimer = null;
   function stopReading() {
@@ -386,7 +396,7 @@
     function next() {
       if (mySession !== session || index >= items.length) return;
       const item = items[index++];
-      const utterance = new SpeechSynthesisUtterance(item.text);
+      const utterance = new SpeechSynthesisUtterance(prepareSpeechText(item.text));
       utterance.lang = "en-US";
       utterance.rate = speed;
       utterance.pitch = 1;
