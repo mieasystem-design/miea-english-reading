@@ -239,9 +239,9 @@
 <section class="full-controls" aria-label="全文の参考音声">
 <h2 class="section-heading">① 全文を聞いてみよう</h2>
 <div class="buttons">
-<button class="very-slow" onclick="startFull(0.4)">🐌 じっくり<br>0.4×</button>
-<button class="slow" onclick="startFull(0.6)">🐢 ゆっくり<br>0.6×</button>
-<button class="normal" onclick="startFull(0.8)">▶ チャレンジ<br>0.8×</button>
+<button class="very-slow" onclick="startFull(0.4)">🐌 じっくり</button>
+<button class="slow" onclick="startFull(0.6)">🐢 ゆっくり</button>
+<button class="normal" onclick="startFull(0.8)">▶ チャレンジ</button>
 </div>
 </section>
 <button class="stop" onclick="stopReading()">■ とめる</button>
@@ -372,9 +372,13 @@
 
   // iPhone / iPod の音声合成だけに適用する発音テスト。
   // 画面の英文、Windows、Pixel などの音声用英文は変更しません。
-  function prepareSpeechText(text) {
-    const isIPhone = /iPhone|iPod/i.test(navigator.userAgent) ||
+  function isAppleMobile() {
+    return /iPhone|iPod/i.test(navigator.userAgent) ||
       (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  }
+
+  function prepareSpeechText(text) {
+    const isIPhone = isAppleMobile();
     if (!isIPhone) return text;
     // rivers のみ試験的に表記を変える（実機で発音を確認してください）。
     return text.replace(/\brivers\b/g, "rivvers");
@@ -398,7 +402,8 @@
       const item = items[index++];
       const utterance = new SpeechSynthesisUtterance(prepareSpeechText(item.text));
       utterance.lang = "en-US";
-      utterance.rate = speed;
+      // iPhone の「じっくり」だけ 0.3 を試す。他の速度・端末は従来どおり。
+      utterance.rate = (isAppleMobile() && speed === 0.4) ? 0.3 : speed;
       utterance.pitch = 1;
       utterance.volume = 1;
       if (voice) utterance.voice = voice;
